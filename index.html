@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <title>JS CLOCK PROJECT</title>
     <style>
         body{
             display : flex;
             justify-content: center;
-            align-items: center;
+            align-items: center;            
             height: 100vh;
             background-color: #282c34;
             color:white;
@@ -33,7 +33,7 @@
            <h1 class="clock">00:00:00</h1>
         </div>
         <audio src="./ticking-clock.mp3" preload="auto"></audio>
-        <script>
+        <script>   
             const element=document.querySelector('.clock')
             const sound=document.querySelector('audio')
             const time=new Date();
@@ -55,7 +55,7 @@
                 second:'2-digit'
             }
             element.textContent=time.toLocaleTimeString('en-US',option)
-            },1000)
+            },5000)
             sound.play();
         </script>
 </body>
