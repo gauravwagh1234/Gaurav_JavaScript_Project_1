@@ -12,8 +12,7 @@
             height: 100vh;
             background-color: #282c34;
             color:white;
-            font-family: Arial,Arial, Helvetica, sans-serif;
-
+            font-family: Arial, Arial, Helvetica, sans-serif;
         } 
         .clockContainer{
             text-align: center;
@@ -32,31 +31,33 @@
         <div class="clockContainer">
            <h1 class="clock">00:00:00</h1>
         </div>
-        <audio src="/Introduction/Project-1/ticking-clock.mp3" preload="auto"></audio>
+        <!-- Use relative path for audio file -->
+        <audio src="Introduction/Project-1/ticking-clock.mp3" preload="auto"></audio>
         <script>   
-            const element=document.querySelector('.clock')
-            const sound=document.querySelector('audio')
-            const time=new Date();
-            const option={
-                timeZone:'Asia/Kolkata',
-                hour:'2-digit',
-                minute:'2-digit',
-                second:'2-digit'
+            const element = document.querySelector('.clock');
+            const sound = document.querySelector('audio');
+            
+            // Function to play sound when the user interacts (clicking anywhere)
+            document.body.addEventListener('click', function() {
+                sound.play();
+            });
+
+            function updateTime() {
+                const time = new Date();
+                const option = {
+                    timeZone: 'Asia/Kolkata',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                };
+                element.textContent = time.toLocaleTimeString('en-US', option);
             }
-            element.textContent=time.toLocaleTimeString('en-US',option)
-            setInterval(()=>{
-                const element=document.querySelector('.clock')
-                const sound=document.querySelector('audio')
-            const time=new Date();
-            const option={
-                timeZone:'Asia/Kolkata',
-                hour:'2-digit',
-                minute:'2-digit',
-                second:'2-digit'
-            }
-            element.textContent=time.toLocaleTimeString('en-US',option)
-            },9000)
-            sound.play();
+
+            // Initial time update
+            updateTime();
+
+            // Set interval to update time every second
+            setInterval(updateTime, 1000);
         </script>
 </body>
 </html>
