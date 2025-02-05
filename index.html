@@ -14,7 +14,7 @@
             color:white;
             font-family: Arial,Arial, Helvetica, sans-serif;
 
-        }
+        } 
         .clockContainer{
             text-align: center;
             font-size: 48px;
@@ -32,7 +32,7 @@
         <div class="clockContainer">
            <h1 class="clock">00:00:00</h1>
         </div>
-        <audio src="./ticking-clock.mp3" preload="auto"></audio>
+        <audio src="/Introduction/Project-1/ticking-clock.mp3" preload="auto"></audio>
         <script>   
             const element=document.querySelector('.clock')
             const sound=document.querySelector('audio')
@@ -55,7 +55,7 @@
                 second:'2-digit'
             }
             element.textContent=time.toLocaleTimeString('en-US',option)
-            },5000)
+            },1000)
             sound.play();
         </script>
 </body>
